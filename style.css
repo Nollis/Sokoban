@@ -40,6 +40,15 @@ body {
     background-image: url(resources/Box.png)
 }
 
+.scorebox {
+    width: 36px;
+    height: 36px;
+    padding: 0px;
+    border: none;
+    display: inline-block;
+    background-image: url(resources/ScoreBox.png)
+}
+
 .wall {
     width: 36px;
     height: 36px;

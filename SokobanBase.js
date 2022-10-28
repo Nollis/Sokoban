@@ -163,8 +163,13 @@ function movePlayer(direction) {
   }
 
   let divCurrPlayerPos = document.getElementsByClassName('player')[0]
-  let boxesRemaining = document.getElementsByClassName('goal').length
-  document.getElementById('score').innerHTML = boxesRemaining
+  let bananasCollected = document.getElementsByClassName('scorebox').length
+  document.getElementById('score').innerHTML = bananasCollected
+
+if (bananasCollected == 6) {
+  document.getElementById('winner').innerHTML = 'You Won!!!'
+}
+
   // console.log(divCurrPlayerPos)
   let currPlayerPos = divCurrPlayerPos.id;
 
@@ -190,11 +195,12 @@ function movePlayer(direction) {
       divCurrPlayerPos.classList.remove('player')
       if(divNextPlayerPos.classList.contains('box')) {
         //Move the box by removing class from current position and adding same box class to next position
-        if(divNextPlayerPos.classList.contains('goal')) {
-          divSecondPlayerPos.classList.remove('goal')
-        }
         divSecondPlayerPos.classList.add('box')
         divNextPlayerPos.classList.remove('box')
+        if(divSecondPlayerPos.classList.contains('goal')) {
+          divSecondPlayerPos.classList.add('scorebox')
+          divNextPlayerPos.classList.remove('scorebox')
+        }
       }
     }
   }
