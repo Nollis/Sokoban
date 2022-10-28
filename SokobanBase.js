@@ -198,9 +198,7 @@ if (bananasCollected == boxes) {
       divCurrPlayerPos.classList.remove('player')
       if(divNextPlayerPos.classList.contains('box')) {
         //Move the box by removing class from current position and adding same box class to next position
-        console.log(divCurrPlayerPos)
-        console.log(divNextPlayerPos)
-        console.log(divSecondPlayerPos)
+
         divSecondPlayerPos.classList.add('box')
         divNextPlayerPos.classList.remove('box')
         divNextPlayerPos.classList.remove('scorebox')
