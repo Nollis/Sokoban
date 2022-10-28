@@ -109,8 +109,11 @@ function getKeyAndMove(e) {
   }
 }
 
+var boxes
+
 function gameStart() {
   readMap()
+  boxes = document.getElementsByClassName('box').length
   document.addEventListener('keydown', getKeyAndMove)
 }
 
@@ -166,7 +169,7 @@ function movePlayer(direction) {
   let bananasCollected = document.getElementsByClassName('scorebox').length
   document.getElementById('score').innerHTML = bananasCollected
 
-if (bananasCollected == 6) {
+if (bananasCollected == boxes) {
   document.getElementById('winner').innerHTML = 'You Won!!!'
 }
 
@@ -195,8 +198,12 @@ if (bananasCollected == 6) {
       divCurrPlayerPos.classList.remove('player')
       if(divNextPlayerPos.classList.contains('box')) {
         //Move the box by removing class from current position and adding same box class to next position
+        console.log(divCurrPlayerPos)
+        console.log(divNextPlayerPos)
+        console.log(divSecondPlayerPos)
         divSecondPlayerPos.classList.add('box')
         divNextPlayerPos.classList.remove('box')
+        divNextPlayerPos.classList.remove('scorebox')
         if(divSecondPlayerPos.classList.contains('goal')) {
           divSecondPlayerPos.classList.add('scorebox')
           divNextPlayerPos.classList.remove('scorebox')
